@@ -1,4 +1,4 @@
-package com.ryanbuxton.blacknova;
+package com.ryanbuxton.blacknova.main;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
