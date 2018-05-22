@@ -21,6 +21,7 @@ public class MainMenu implements Screen{
 		cam = new OrthographicCamera();
 		cam.setToOrtho(false, 1920, 1080);
 		
+		
 		title = game.atlas.createSprite("title");
 		Sprite s = game.atlas.createSprite("star");
 		footer = game.atlas.createSprite("option_footer");
@@ -29,21 +30,21 @@ public class MainMenu implements Screen{
 		optionSettings = game.atlas.createSprite("menu_option");
 		optionCredits = game.atlas.createSprite("menu_option");
 		
-		title.setPosition(0, Gdx.graphics.getHeight() - title.getHeight());
-		header.setPosition((Gdx.graphics.getWidth()/2) - (header.getWidth()/2), Gdx.graphics.getHeight() - title.getHeight() - header.getHeight());
+		title.setPosition(0, cam.viewportHeight - title.getHeight());
+		header.setPosition((cam.viewportWidth/2) - (header.getWidth()/2), cam.viewportHeight - title.getHeight() - header.getHeight());
 		
 		
-		optionPlay.setPosition((Gdx.graphics.getWidth()/2) - (optionPlay.getWidth()/2), header.getY() - (optionPlay.getHeight()));
-		optionSettings.setPosition((Gdx.graphics.getWidth()/2) - (optionSettings.getWidth()/2), header.getY() - (optionSettings.getHeight() * 3));
-		optionCredits.setPosition((Gdx.graphics.getWidth()/2) - (optionCredits.getWidth()/2), header.getY() - (optionCredits.getHeight() * 5));
+		optionPlay.setPosition((cam.viewportWidth/2) - (optionPlay.getWidth()/2), header.getY() - (optionPlay.getHeight()));
+		optionSettings.setPosition((cam.viewportWidth/2) - (optionSettings.getWidth()/2), header.getY() - (optionSettings.getHeight() * 3));
+		optionCredits.setPosition((cam.viewportWidth/2) - (optionCredits.getWidth()/2), header.getY() - (optionCredits.getHeight() * 5));
 		
 		
 		footer.setRotation(180);
-		footer.setPosition((Gdx.graphics.getWidth()/2) - (header.getWidth()/2), header.getY() - (optionCredits.getHeight() * 5) - footer.getHeight());
+		footer.setPosition((cam.viewportWidth/2) - (header.getWidth()/2), header.getY() - (optionCredits.getHeight() * 5) - footer.getHeight());
 		
 		stars = new Star[25];
 		for(int i = 0; i < 25; i ++) {
-			stars[i] = new Star(s);
+			stars[i] = new Star(s, cam);
 		}
 	}
 
@@ -66,9 +67,9 @@ public class MainMenu implements Screen{
 		optionSettings.draw(game.batch);
 		optionCredits.draw(game.batch);
 		
-		game.titleFont.draw(game.batch, "PLAY", 0, optionPlay.getY() + 55, Gdx.graphics.getWidth(), 1, false);
-		game.titleFont.draw(game.batch, "SETTINGS", 0, optionSettings.getY() + 55, Gdx.graphics.getWidth(), 1, false);
-		game.titleFont.draw(game.batch, "CREDITS", 0, optionCredits.getY() + 55, Gdx.graphics.getWidth(), 1, false);
+		game.titleFont.draw(game.batch, "PLAY", 0, optionPlay.getY() + 55, cam.viewportWidth, 1, false);
+		game.titleFont.draw(game.batch, "SETTINGS", 0, optionSettings.getY() + 55, cam.viewportWidth, 1, false);
+		game.titleFont.draw(game.batch, "CREDITS", 0, optionCredits.getY() + 55, cam.viewportWidth, 1, false);
 		
 		game.testFont.draw(game.batch, "ART AND CONCEPT BY JOSEPH AHN\nCODE BY RYAN BUXTON (RYANBUXTON.COM)\nVERSION " + game.ver, 0, game.testFont.getCapHeight()*5);
 		game.batch.end();
