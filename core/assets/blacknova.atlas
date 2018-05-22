@@ -6,252 +6,259 @@ filter: Nearest,Nearest
 repeat: none
 alien1_aggro
   rotate: false
-  xy: 859, 268
+  xy: 227, 6
   size: 78, 60
   orig: 78, 60
   offset: 0, 0
   index: -1
 alien1_aggro2
   rotate: false
-  xy: 370, 102
+  xy: 1201, 270
   size: 62, 56
   orig: 62, 60
   offset: 0, 2
   index: -1
 alien1_dead
   rotate: false
-  xy: 1866, 332
+  xy: 1866, 330
   size: 62, 48
   orig: 65, 56
   offset: 1, 3
   index: -1
 alien1_elec
   rotate: false
-  xy: 217, 8
+  xy: 370, 106
   size: 78, 60
   orig: 78, 60
   offset: 0, 0
   index: -1
 alien1_idle
   rotate: false
-  xy: 1866, 382
+  xy: 1866, 380
   size: 64, 56
   orig: 65, 56
   offset: 1, 0
   index: -1
 ammo_mg
   rotate: false
-  xy: 364, 28
+  xy: 1596, 274
   size: 19, 15
   orig: 19, 15
   offset: 0, 0
   index: -1
 ammo_sg
   rotate: false
-  xy: 1996, 423
+  xy: 1575, 274
   size: 19, 15
   orig: 19, 15
   offset: 0, 0
   index: -1
 dead
   rotate: false
-  xy: 2, 70
+  xy: 2, 68
   size: 366, 161
   orig: 373, 166
   offset: 3, 2
   index: -1
 enemy1
   rotate: false
-  xy: 434, 113
+  xy: 307, 21
   size: 60, 45
   orig: 60, 45
   offset: 0, 0
   index: -1
 floor
   rotate: false
-  xy: 496, 108
+  xy: 585, 179
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
 healthoverlay
   rotate: false
-  xy: 1866, 440
+  xy: 1866, 438
   size: 165, 70
   orig: 165, 72
   offset: 0, 1
   index: -1
 laser
   rotate: false
-  xy: 2, 2
+  xy: 1932, 386
   size: 13, 3
   orig: 13, 3
   offset: 0, 0
   index: -1
 loot
   rotate: false
-  xy: 1199, 296
+  xy: 370, 72
   size: 62, 32
   orig: 62, 49
   offset: 0, 6
   index: -1
 loot_e
   rotate: false
-  xy: 1135, 289
+  xy: 1459, 287
   size: 62, 39
   orig: 62, 49
   offset: 0, 6
   index: -1
 loot_opened
   rotate: false
-  xy: 1932, 394
+  xy: 520, 122
   size: 62, 44
   orig: 62, 44
   offset: 0, 0
   index: -1
 medkit
   rotate: false
-  xy: 605, 198
+  xy: 2001, 403
   size: 22, 33
   orig: 22, 33
   offset: 0, 0
   index: -1
+menu_option
+  rotate: false
+  xy: 634, 244
+  size: 400, 82
+  orig: 400, 83
+  offset: 0, 0
+  index: -1
 mg2
   rotate: false
-  xy: 2, 7
+  xy: 370, 168
   size: 213, 61
   orig: 217, 64
   offset: 3, 1
   index: -1
 mg2_mini
   rotate: false
-  xy: 535, 169
+  xy: 450, 104
   size: 54, 15
   orig: 57, 21
   offset: 2, 2
   index: -1
 option_footer
   rotate: false
-  xy: 2, 233
+  xy: 2, 231
   size: 630, 95
   orig: 631, 95
   offset: 1, 0
   index: -1
 p1
   rotate: false
-  xy: 1070, 290
+  xy: 1394, 288
   size: 63, 38
   orig: 67, 43
   offset: 2, 2
   index: -1
 player_hg
   rotate: false
-  xy: 1008, 283
+  xy: 1332, 281
   size: 60, 45
   orig: 60, 45
   offset: 0, 0
   index: -1
 player_mg
   rotate: false
-  xy: 939, 283
+  xy: 1932, 391
   size: 67, 45
   orig: 67, 45
   offset: 0, 0
   index: -1
 player_nothing
   rotate: false
-  xy: 1368, 293
+  xy: 1575, 291
   size: 50, 35
   orig: 51, 35
   offset: 1, 0
   index: -1
 player_sg
   rotate: false
-  xy: 535, 186
+  xy: 450, 121
   size: 68, 45
   orig: 68, 45
   offset: 0, 0
   index: -1
 player_volt
   rotate: false
-  xy: 297, 23
+  xy: 1265, 281
   size: 65, 45
   orig: 65, 45
   offset: 0, 0
   index: -1
 sg1
   rotate: false
-  xy: 634, 264
+  xy: 2, 2
   size: 223, 64
   orig: 225, 66
   offset: 1, 1
   index: -1
 sg_mini
   rotate: false
-  xy: 697, 245
+  xy: 1201, 251
   size: 56, 17
   orig: 56, 17
   offset: 0, 0
   index: -1
 snickers
   rotate: false
-  xy: 634, 240
+  xy: 1627, 304
   size: 61, 22
   orig: 63, 22
   offset: 0, 0
   index: -1
 star
   rotate: false
-  xy: 2033, 501
+  xy: 2033, 499
   size: 9, 9
   orig: 10, 10
   offset: 1, 0
   index: -1
 supplybox
   rotate: false
-  xy: 364, 45
+  xy: 1796, 303
   size: 51, 23
   orig: 51, 31
   offset: 0, 0
   index: -1
 supplybox_e
   rotate: false
-  xy: 370, 70
+  xy: 1690, 296
   size: 51, 30
   orig: 51, 31
   offset: 0, 0
   index: -1
 supplybox_open
   rotate: false
-  xy: 1263, 296
+  xy: 1743, 294
   size: 51, 32
   orig: 51, 33
   offset: 0, 1
   index: -1
 title
   rotate: false
-  xy: 2, 330
+  xy: 2, 328
   size: 1862, 180
   orig: 1905, 265
   offset: 23, 50
   index: -1
 volt1
   rotate: false
-  xy: 370, 160
+  xy: 1036, 255
   size: 163, 71
   orig: 167, 74
   offset: 3, 2
   index: -1
 volt1_mini
   rotate: false
-  xy: 1420, 311
+  xy: 307, 2
   size: 41, 17
   orig: 47, 20
   offset: 5, 1
   index: -1
 wall
   rotate: false
-  xy: 1316, 278
+  xy: 1523, 276
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
