@@ -39,6 +39,8 @@ public class Main extends Game {
 		
 		gen.dispose();
 		
+		Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+		
 		//last
 		this.setScreen(new MainMenu(this));
 	}
