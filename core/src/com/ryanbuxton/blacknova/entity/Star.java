@@ -18,7 +18,6 @@ public class Star implements Entity{
 		this.cam = cam;
 	}
 	
-	@Override
 	public void render(SpriteBatch batch) {
 		// fly along
 		move();

@@ -3,8 +3,10 @@ package com.ryanbuxton.blacknova.main;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -19,6 +21,7 @@ public class Main extends Game {
 	public TextureAtlas atlas;
 	public BitmapFont testFont, titleFont;
 	public String ver = "0.0.1";
+	public OrthographicCamera cam;
 
 	public void create() {
 		batch = new SpriteBatch();
@@ -40,6 +43,9 @@ public class Main extends Game {
 		gen.dispose();
 		
 		Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+		
+		cam = new OrthographicCamera();
+		cam.setToOrtho(false, 1920, 1080);
 		
 		//last
 		this.setScreen(new MainMenu(this));
