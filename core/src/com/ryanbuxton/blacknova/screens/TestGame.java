@@ -10,17 +10,17 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.ryanbuxton.blacknova.entity.Player;
 import com.ryanbuxton.blacknova.main.Main;
-import com.ryanbuxton.blacknova.map.ChunkMap;
+import com.ryanbuxton.blacknova.map.WorldMap;
 import com.ryanbuxton.blacknova.map.StringMap;
 
 public class TestGame implements Screen{
 	private Main game;
 	private Player player;
-	private ChunkMap cmap;
+	private WorldMap cmap;
 	
 	public TestGame(final Main game) {
 		this.game = game;
-		cmap = new ChunkMap(8,8);
+		cmap = new WorldMap(8,8);
 		player = new Player(game);
 		
 	}
