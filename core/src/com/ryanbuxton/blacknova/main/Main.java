@@ -30,13 +30,19 @@ public class Main extends Game {
 		//fonts
 		FreeTypeFontGenerator gen = new FreeTypeFontGenerator(Gdx.files.internal("blacknova_font.ttf"));
 		FreeTypeFontParameter par = new FreeTypeFontParameter();
+		
 		//testFont is a small font for debugging
 		par.size = 20;
+		par.color = Color.WHITE;
 		testFont = gen.generateFont(par);
+		
+		
 		//titleFont is big for menu items
+		par = new FreeTypeFontParameter();
 		par.size = 40;
 		par.shadowOffsetX = 5;
 		par.shadowOffsetY = 5;
+		par.color = Color.WHITE;
 		par.shadowColor = Color.BLACK;
 		titleFont = gen.generateFont(par);
 		

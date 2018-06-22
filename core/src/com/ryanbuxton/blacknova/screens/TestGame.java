@@ -20,7 +20,7 @@ public class TestGame implements Screen{
 	
 	public TestGame(final Main game) {
 		this.game = game;
-		cmap = new WorldMap(8,8);
+		cmap = new WorldMap(8, 8, 16, 16);
 		player = new Player(game);
 		
 	}
@@ -38,6 +38,7 @@ public class TestGame implements Screen{
 		game.batch.begin();
 		
 		player.render(mouse);
+		
 		
 		game.batch.end();
 		

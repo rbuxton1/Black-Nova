@@ -10,10 +10,11 @@ import com.ryanbuxton.blacknova.map.chunks.RoomChunk;
 public class WorldMap {
 	private StringMap csm;
 	private ChunkMap cm;
+	private StringMap worldStringMap;
 	
-	public WorldMap(int width, int height) {
+	public WorldMap(int width, int height, int chunkHeight, int chunkWidth) {
 		csm = new StringMap(width, height, "-");
-		cm = new ChunkMap(width, height, new EmptyChunk(8,8));
+		cm = new ChunkMap(width, height, new EmptyChunk(chunkHeight, chunkWidth));
 		
 		Random gen = new Random();
 		Point start = new Point(gen.nextInt(width), gen.nextInt(height));
@@ -69,40 +70,58 @@ public class WorldMap {
 			for(int x = 0; x < width; x++) {
 				switch(csm.get(x, y).toCharArray()[0]) {
 					case 'R':
-						cm.set(x, y, new RoomChunk(8,8, csm, x, y, RoomChunk.DEFAULT));
+						cm.set(x, y, new RoomChunk(chunkWidth, chunkHeight, csm, x, y, RoomChunk.DEFAULT));
 						break;
 					case 'H':
-						cm.set(x, y, new RoomChunk(8,8, csm, x, y, RoomChunk.HALL_ROOM));
+						cm.set(x, y, new RoomChunk(chunkWidth, chunkHeight, csm, x, y, RoomChunk.HALL_ROOM));
 						break;
 					case 'S':
-						cm.set(x, y, new RoomChunk(8,8, csm, x, y, RoomChunk.START_ROOM));
+						cm.set(x, y, new RoomChunk(chunkWidth, chunkHeight, csm, x, y, RoomChunk.START_ROOM));
 						break;
 					case 'E':
-						cm.set(x, y, new RoomChunk(8,8, csm, x, y, RoomChunk.END_ROOM));
+						cm.set(x, y, new RoomChunk(chunkWidth, chunkHeight, csm, x, y, RoomChunk.END_ROOM));
 						break;
 					case '-':
-						cm.set(x, y, new EmptyChunk(8,8));
+						cm.set(x, y, new EmptyChunk(chunkWidth, chunkHeight));
 						break;
 				}
 			}
 		}//TODO: somethings not right here and Im not sure what ugh
 		
-		StringMap stm = new StringMap(height * 8, width * 8, " ");
+		worldStringMap = new StringMap(height * chunkHeight, width * chunkWidth, " ");
+		System.out.println("world map " + worldStringMap.getAsArray().length + " by " + worldStringMap.getAsArray()[0].length);
 		for(int chunkY = 0; chunkY < height; chunkY++) {
 			for(int chunkX = 0; chunkX < width; chunkX++) {
 				//now we have the indiviual chunk and we want to break that into the smaller peices.
 				StringMap chunkMap = cm.get(chunkX, chunkY).getMap();
+				//System.out.println("THIS CHUNK IS " + chunkMap.getAsArray().length + " by " + chunkMap.getAsArray()[0].length);
+				
 				for(int y = 0; y < chunkMap.getAsArray().length; y++) {
+					//System.out.print("y = " + (y + (chunkY * chunkHeight)) + " | ");
 					for(int x = 0; x < chunkMap.getAsArray()[y].length; x++) {
-						
-						stm.set(x + (chunkX * width), y + (chunkY *height), chunkMap.get(x, y));
+						//System.out.print((x + (chunkX * chunkWidth)) + " ");
+						worldStringMap.set(x + (chunkX * chunkWidth), y + (chunkY * chunkHeight), chunkMap.get(x, y));
 					}
+					//System.out.println("");
 				}
 				
 			}
 		}
-		stm.printMap();
+		worldStringMap.printMap();
 	}
 	
+	public StringMap getWorldStringMap() {
+		return worldStringMap;
+	}
+	public String toString() {
+		String s = "";
+		for(int y = 0; y < worldStringMap.getAsArray().length; y++) {
+			for(int x = 0; x < worldStringMap.getAsArray()[y].length; x++) {
+				s += worldStringMap.get(x, y);
+			}
+			s+= " \n";
+		}
+		return s;
+	}
 	
 }

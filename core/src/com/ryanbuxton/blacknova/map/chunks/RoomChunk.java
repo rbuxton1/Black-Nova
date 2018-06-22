@@ -21,20 +21,26 @@ public class RoomChunk implements Chunk {
 		char[][] load = new char[height][width];
 		Scanner in = new Scanner("");
 		try {
-			if(type == DEFAULT) in = new Scanner(Gdx.files.internal("maps/room_8x8.txt").file());
-			else if(type == START_ROOM) in = new Scanner(Gdx.files.internal("maps/start_8x8.txt").file());
-			else if(type == END_ROOM) in = new Scanner(Gdx.files.internal("maps/end_8x8.txt").file());
-			else if(type == HALL_ROOM) in = new Scanner(Gdx.files.internal("maps/hall_8x8.txt").file());
+			if(width == 8 && height == 8) {
+				if(type == DEFAULT) in = new Scanner(Gdx.files.internal("maps/room_8x8.txt").file());
+				else if(type == START_ROOM) in = new Scanner(Gdx.files.internal("maps/start_8x8.txt").file());
+				else if(type == END_ROOM) in = new Scanner(Gdx.files.internal("maps/end_8x8.txt").file());
+				else if(type == HALL_ROOM) in = new Scanner(Gdx.files.internal("maps/hall_8x8.txt").file());
+			}
+			else if(width == 16 && height == 16) {
+				if(type == DEFAULT) in = new Scanner(Gdx.files.internal("maps/room_16x16.txt").file());
+				else if(type == START_ROOM) in = new Scanner(Gdx.files.internal("maps/start_16x16.txt").file());
+				else if(type == END_ROOM) in = new Scanner(Gdx.files.internal("maps/end_16x16.txt").file());
+				else if(type == HALL_ROOM) in = new Scanner(Gdx.files.internal("maps/hall_16x16.txt").file());
+			}
 		} catch (FileNotFoundException e) {
 			Gdx.app.log("ERROR", "Couldnt load a room map!");
 		}
 		int i = 0;
 		while(in.hasNextLine()){
 			String line = in.nextLine();
-			if(line.length() != 8) {
-				int len = line.length();
-				for(int c = 0; c < (8 - len); c++)
-					line = line + " ";
+			while(line.length() != width) {
+				line += " ";
 			}
 			load[i] = line.toCharArray();
 			i++;
@@ -77,8 +83,11 @@ public class RoomChunk implements Chunk {
 		myMap.replaceAllOccur("P", " ");
 		myMap.replaceAllOccur("Q", " ");
 		
+		
+		//System.out.println("ROOMCHUNK (" + myX + ", " + myY + ") connected on " + connections + " TYPE " + type);
 		//myMap.printMap();
-		//System.out.println("ROOMCHUNK (" + myX + ", " + myY + ") connected on " + connections);
+		//System.out.println("----------------------------------------------------------------------------------");
+		
 	}	
 	public StringMap getMap() {
 		return myMap;
