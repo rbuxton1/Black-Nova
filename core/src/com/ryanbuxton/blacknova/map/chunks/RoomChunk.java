@@ -1,5 +1,6 @@
 package com.ryanbuxton.blacknova.map.chunks;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -22,19 +23,20 @@ public class RoomChunk implements Chunk {
 		Scanner in = new Scanner("");
 		try {
 			if(width == 8 && height == 8) {
-				if(type == DEFAULT) in = new Scanner(Gdx.files.internal("maps/room_8x8.txt").file());
-				else if(type == START_ROOM) in = new Scanner(Gdx.files.internal("maps/start_8x8.txt").file());
-				else if(type == END_ROOM) in = new Scanner(Gdx.files.internal("maps/end_8x8.txt").file());
-				else if(type == HALL_ROOM) in = new Scanner(Gdx.files.internal("maps/hall_8x8.txt").file());
+				if(type == DEFAULT) in = new Scanner(Gdx.files.internal("maps/room_8x8.txt").reader());
+				else if(type == START_ROOM) in = new Scanner(Gdx.files.internal("maps/start_8x8.txt").reader());
+				else if(type == END_ROOM) in = new Scanner(Gdx.files.internal("maps/end_8x8.txt").reader());
+				else if(type == HALL_ROOM) in = new Scanner(Gdx.files.internal("maps/hall_8x8.txt").reader());
 			}
 			else if(width == 16 && height == 16) {
-				if(type == DEFAULT) in = new Scanner(Gdx.files.internal("maps/room_16x16.txt").file());
-				else if(type == START_ROOM) in = new Scanner(Gdx.files.internal("maps/start_16x16.txt").file());
-				else if(type == END_ROOM) in = new Scanner(Gdx.files.internal("maps/end_16x16.txt").file());
-				else if(type == HALL_ROOM) in = new Scanner(Gdx.files.internal("maps/hall_16x16.txt").file());
+				if(type == DEFAULT) in = new Scanner(Gdx.files.internal("maps/room_16x16.txt").reader());
+				else if(type == START_ROOM) in = new Scanner(Gdx.files.internal("maps/start_16x16.txt").reader());
+				else if(type == END_ROOM) in = new Scanner(Gdx.files.internal("maps/end_16x16.txt").reader());
+				else if(type == HALL_ROOM) in = new Scanner(Gdx.files.internal("maps/hall_16x16.txt").reader());
 			}
-		} catch (FileNotFoundException e) {
+		} catch (Exception e) {
 			Gdx.app.log("ERROR", "Couldnt load a room map!");
+			Gdx.app.log("ERROR", e.getMessage());
 		}
 		int i = 0;
 		while(in.hasNextLine()){
@@ -51,24 +53,28 @@ public class RoomChunk implements Chunk {
 		
 		//context yourself now
 		String connections = "";
-		if(!chunkMap.get(myX-1, myY).equals(chunkMap.clearChar)) {
-			myMap.replaceAllOccur("L", " ");
+		if(!chunkMap.get(myX-1, myY).equals(chunkMap.clearChar)) { //Connected on left
+			myMap.replaceAllOccur("L", "F");
 			myMap.replaceAllOccur("Q", "W");
+			myMap.replaceAllOccur("G", "F");
 			connections += "left ";
 		}
-		if(!chunkMap.get(myX+1, myY).equals(chunkMap.clearChar)) {
-			myMap.replaceAllOccur("R", " ");
+		if(!chunkMap.get(myX+1, myY).equals(chunkMap.clearChar)) { //connected on right
+			myMap.replaceAllOccur("R", "F");
 			myMap.replaceAllOccur("O", "W");
+			myMap.replaceAllOccur("D", "F");
 			connections += "right ";
 		}
-		if(!chunkMap.get(myX, myY+1).equals(chunkMap.clearChar)) {
-			myMap.replaceAllOccur("T", " ");
+		if(!chunkMap.get(myX, myY+1).equals(chunkMap.clearChar)) { //Connected on top
+			myMap.replaceAllOccur("T", "F");
 			myMap.replaceAllOccur("N", "W");
+			myMap.replaceAllOccur("C", "F");
 			connections += "top ";
 		}
-		if(!chunkMap.get(myX, myY-1).equals(chunkMap.clearChar)) {
-			myMap.replaceAllOccur("B", " ");
+		if(!chunkMap.get(myX, myY-1).equals(chunkMap.clearChar)) { //Connected on bottom
+			myMap.replaceAllOccur("B", "F");
 			myMap.replaceAllOccur("P", "W");
+			myMap.replaceAllOccur("E", "F");
 			connections += "bottom ";
 		}
 		
@@ -82,6 +88,11 @@ public class RoomChunk implements Chunk {
 		myMap.replaceAllOccur("O", " ");
 		myMap.replaceAllOccur("P", " ");
 		myMap.replaceAllOccur("Q", " ");
+		
+		myMap.replaceAllOccur("C", " ");
+		myMap.replaceAllOccur("D", " ");
+		myMap.replaceAllOccur("E", " ");
+		myMap.replaceAllOccur("G", " ");
 		
 		
 		//System.out.println("ROOMCHUNK (" + myX + ", " + myY + ") connected on " + connections + " TYPE " + type);

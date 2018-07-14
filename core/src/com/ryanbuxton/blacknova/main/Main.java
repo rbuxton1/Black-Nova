@@ -19,7 +19,7 @@ import com.ryanbuxton.blacknova.screens.MainMenu;
 public class Main extends Game {
 	public SpriteBatch batch;
 	public TextureAtlas atlas;
-	public BitmapFont testFont, titleFont;
+	public BitmapFont testFont, titleFont, debugFont;
 	public String ver = "0.0.1";
 	public OrthographicCamera cam;
 
@@ -46,6 +46,14 @@ public class Main extends Game {
 		par.shadowColor = Color.BLACK;
 		titleFont = gen.generateFont(par);
 		
+		//for debugging
+		par = new FreeTypeFontParameter();
+		par.size = 25;
+		par.shadowOffsetX = 1;
+		par.shadowOffsetY = 1;
+		par.color = Color.RED;
+		par.shadowColor = Color.BLACK;
+		debugFont = gen.generateFont(par);
 		gen.dispose();
 		
 		Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());

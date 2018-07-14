@@ -1,16 +1,16 @@
-     N    N
-     N    N
-     N    N
-     N    N
-     N    N
+     NCCCCN
+     NCCCCN
+     NCCCCN
+     NCCCCN
+     NCCCCN
 QQQQQWTTTTWOOOOO
-     L    R
-     L    R
-     L    R
-     L    R    
+GGGGGLFFFFRDDDDD
+GGGGGLFFFFRDDDDD
+GGGGGLFFFFRDDDDD
+GGGGGLFFFFRDDDDD
 QQQQQWBBBBWOOOOO
-     P    P
-     P    P
-     P    P
-     P    P
-     P    P
+     PEEEEP
+     PEEEEP
+     PEEEEP
+     PEEEEP
+     PEEEEP

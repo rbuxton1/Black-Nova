@@ -4,15 +4,24 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
+import com.ryanbuxton.blacknova.main.Main;
 import com.ryanbuxton.blacknova.map.chunks.EmptyChunk;
 import com.ryanbuxton.blacknova.map.chunks.RoomChunk;
+import com.ryanbuxton.blacknova.map.tiles.Tile;
 
 public class WorldMap {
 	private StringMap csm;
 	private ChunkMap cm;
 	private StringMap worldStringMap;
+	private TileMap tileMap;
+	private Main game;
 	
-	public WorldMap(int width, int height, int chunkHeight, int chunkWidth) {
+	public WorldMap(int width, int height, int chunkHeight, int chunkWidth, Main game) {
+		this.game = game;
 		csm = new StringMap(width, height, "-");
 		cm = new ChunkMap(width, height, new EmptyChunk(chunkHeight, chunkWidth));
 		
@@ -108,6 +117,26 @@ public class WorldMap {
 			}
 		}
 		worldStringMap.printMap();
+		
+		tileMap = new TileMap(worldStringMap.getAsArray()[0].length, worldStringMap.getAsArray().length);
+		Sprite wall = game.atlas.createSprite("wall");
+		Sprite floor = game.atlas.createSprite("floor");
+		for(int y = 0; y < worldStringMap.getAsArray().length; y++) {
+			for(int x = 0; x < worldStringMap.getAsArray()[y].length; x++) {
+				if(worldStringMap.get(x, y).equals("W")) {
+					tileMap.set(x, y, new Tile(wall, true));
+				}
+				if(worldStringMap.get(x, y).equals("F")) {
+					tileMap.set(x, y, new Tile(floor, true));
+				}
+			}
+		}
+	}
+	
+	public StringMap getChunkMap() { return csm; }
+	
+	public void render(SpriteBatch batch, Vector2 pos) {
+		tileMap.render(batch, pos, game);
 	}
 	
 	public StringMap getWorldStringMap() {
